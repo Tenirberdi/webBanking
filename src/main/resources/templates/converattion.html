@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{https://unpkg.com/aos@next/dist/aos.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bank-css.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css}" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>func №6</title>
+</head>
+<body>
+    <div class="body" id="bg-img5">
+        <header>
+        <nav id="nav-items" class="navbar navbar-expand-lg ">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"> <img src="img/Bumble-Logo.png" width="120px" height="70px" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active " style="color:white;" aria-current="page" href="#">Main</a>
+                </li>
+                <li class="nav-item">
+                <li class="nav-item">
+                  <a  class="nav-link active "  style="color: white" aria-current="page" href="#">ATM</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link active " style="color: white;" aria-current="page" href="#">Clients</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link active" style="color: white;" aria-current="page" href="#">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" style="color: white" aria-current="page" href="#">Contacts</a>
+                </li> 
+              </ul>
+            
+            </div>
+    
+                  <!-- Button trigger modal -->
+                  <a th:href="@{/banker}">
+                    <button type="button" class="btn btn-outline-warning" style="font-size: 18px;border-radius: 15px;margin-right: 10px;">
+                         Back
+                    </button>
+                </a>
+    
+        </nav>
+        </header>
+    
+        <section class="hero-wrap">
+            <div class="hero-mask opacity-7 bg-dark"></div>
+            <div class="hero-content d-flex min-vh-100">
+              <div class="container my-auto py-5">
+                <div class="row mt-4 pt-5">
+                  <div class="col-lg-6 col-xl-7 my-auto text-center text-lg-start pb-4 pb-lg-0">
+                      <div class="text" style="padding-bottom: 500px;">
+                    <h2 class="text-14 fw-400 text-white mb-4">The Secure,<br class="d-none d-xl-block">
+                      easiest and fastest <br class="d-none d-xl-block">
+                      way to set new currency</h2>
+                   
+                    <a href="#" class="btn btn-outline-dark text-3">See more details<i class="fas fa-chevron-right text-2 ms-2"></i></a>
+                 </div>
+                 </div>
+                  <div class="col-lg-6 col-xl-5 my-auto"> 
+                    <div class="transfer" style="padding-bottom: 400px;">
+                    <ul class="nav nav-tabs nav-justified alternate bg-white rounded-top" id="myTab" role="tablist">
+                      <li class="nav-item"> <a class="nav-link active" id="send-money-tab" data-bs-toggle="tab" href="#send-money" role="tab" aria-controls="send-money" aria-selected="true"> <h4 class="text-warning">Set the new value of currency</h4> </a> </li>
+                    </ul>
+                    <div class="tab-content p-4 bg-white rounded-bottom" id="myTabContent">
+                      <div class="tab-pane fade show active" id="send-money" role="tabpanel" aria-labelledby="send-money-tab">
+                        <form id="form-send-money" method="post" th:action="@{/banker/setRate}" style="margin-bottom: 100px;">
+                          <div class="mb-3">
+                        
+                            <i class="fa fa-usd"></i>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="text" name="buy" class="form-control" data-bv-field="recipientGets" id="recipientGets"  placeholder="Purchase">
+                                <input type="text" name="sell" class="form-control" data-bv-field="recipientGets" id="recipientGets1"  placeholder="Sale">
+                              </div>
+                              <label data-error="wrong" data-success="right" for="defaultForm-email">Enter the amounts</label>
+                            </div>
+
+                            <div class="text-muted">
+
+                            <h4>Current exchange rate</h3>
+                            
+                                <table class="table">
+
+                                    <thead class="thead-light">
+                                      <tr>              
+                                        <th scope="col">Currency</th>                          
+                                        <th scope="col">Purchase</th>
+                                        <th scope="col">Sale</th>
+                                      </tr>
+                                
+                                    <tbody>
+                                      <tr>
+                                        <th scope="col">USD</th>
+                                          <td th:text="${rates[0].getBuyDollar()}"></td>
+                                          <td th:text="${rates[0].getSellDollar()}"></td>
+                                      </tr>
+                                    </tbody>
+            
+                                  </table>
+            
+                            </div>
+                        </div>
+                        
+                          <div class="d-grid"><button type="submit" class="btn btn-warning">Set</button></div>
+                        </form>
+                      </div>
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+    
+    </div> 
+    <footer class="text-center text-lg-start" style="background-color: #ebb734;">
+        <!-- Section: Social media -->
+        <section
+          class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+        >
+          <!-- Left -->
+          <div class="me-5 d-none d-lg-block">
+            <span>Get connected with us on social networks:</span>
+          </div>
+          <!-- Left -->
+      
+          <!-- Right -->
+          <div>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+      
+        <!-- Section: Links  -->
+        <section class="">
+          <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <!-- Content -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  <i class="fas fa-gem me-3"></i>Bumble
+                </h6>
+                <p>
+                  The information system is designed to facilitate the bank's employees
+                  to make the necessary calculations using
+                  a data processing program.
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Products
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Bank Managment System</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Book library</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Cloud-based platform</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Ebilim</a>
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Useful links
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Help</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Settings</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Orders</a>
+                </p>
+                <p>
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Contact
+                </h6>
+                <p><i class="fas fa-home me-3"></i> Bishkek, 312, KG</p>
+                <p>
+                  <i class="fas fa-envelope me-3"></i>
+                  bumblea@.com
+                </p>
+                <p><i class="fas fa-phone me-3"></i> +996709465239 </p>
+                <p><i class="fas fa-print me-3"></i> +996770423153 </p>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+          </div>
+        </section>
+        <!-- Section: Links  -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          © 2021 Copyright:
+          <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBumble.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+     AOS.init();
+    </script>
+    <script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

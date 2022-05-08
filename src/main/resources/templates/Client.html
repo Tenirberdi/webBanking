@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{https://unpkg.com/aos@next/dist/aos.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bank-css.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css}" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Banker</title>
+</head>
+<body>
+    <div class="body">
+        <header id="bg-img2">
+        <nav id="nav-items" class="navbar navbar-expand-lg ">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"> <img src="img/Bumble-Logo.png" width="120px" height="70px" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active " style="color:white;" aria-current="page" href="#">Main</a>
+                </li>
+                <li class="nav-item">
+                <li class="nav-item">
+                  <a  class="nav-link active "  style="color: white" aria-current="page" href="#">ATM</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link active " style="color: white;" aria-current="page" href="#">Clients</a>
+                </li>
+                <li class="nav-item">
+                  <a  class="nav-link active" style="color: white;" aria-current="page" href="#">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" style="color: white" aria-current="page" href="#">Contacts</a>
+                </li> 
+              </ul>
+            
+            </div>
+    
+                  <!-- Button trigger modal -->
+                  <a href="/logout">
+                    <button type="button" class="btn btn-outline-warning"  data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size: 18px;border-radius: 15px;margin-right: 10px;">
+                        Sign out
+                        </button>
+                    
+                  </a>
+     
+          </div>
+        </nav>
+        </header> 
+    </div>   
+        <div class="section2" style="background-color: black;height: 780px;"> 
+
+            <div class="row pb-5">  
+      
+                <div class="text-white text-center">
+      
+                  <br>
+                  <br>
+                  <h1>Greetings dear, Client</h1>
+                  <br>
+                  <h5 style="color: #ebb734;">Our platform provides users with the ability to transfer money, convert currency, view customers and much more
+                    <br>
+                    <br>
+                    Please choose the function to continue
+                </h5>
+                  <br>
+                  <hr style="width: 60%; margin-left: 300px;height: 3px;color: white;">
+      
+                  <br>
+      
+                </div>
+              <div id="section2" class="containers">
+                 <div class="column">
+      
+                    <div class="container">
+
+                        <h3 class="text-center" style="color: #ebb734;">Latest new</h3> 
+                        <p class="text-muted" style="float: left;">29.04.22</p>
+                        <p style="float: left;">Attention! Working hours of the Bank's divisions during the May holidays</p>
+                        <p class="text-muted" style="float: left;"> 25.04.22 </p>
+                        <p style="float: left;">Attention, we ask you to be vigilant, scammers are operating!</p>
+                        <p class="text-muted" style="float: left;">21.04.02</p>
+                        <p style="float: left;">Temporary changes in the replenishment of dollar cards and accounts with currency - som</p>
+                        <p class="text-muted" style="float: left;"> 20.04.22 </p>
+                        <p style="float: left;">Temporary change in the procedure for disbursing funds through money transfer systems
+                        </p>
+                  
+                    </div>
+                
+                 </div>
+                 <div class="column" style="margin-left: 120px;">
+                 <a th:href="@{/client/myCrediets}">
+                    <button type="button" class="btn btn-outline-warning " style="width: 70%;height: 50px;" >   
+                        <i class="fa fa-users" aria-hidden="true" style="color: #ebb734;font-size: 30px;float: left;color: white;"></i>
+                        <div class="text" style="font-size: 20px;">My balance
+                    </button>
+                 </a>
+                <br>
+                <br>
+               <a th:href="@{/client/buy-currency}">
+                <button type="button" class="btn btn-outline-warning" style="width: 70%;height: 50px;">  
+                    <i class="fa fa-usd" aria-hidden="true" style="color: #ebb734;font-size: 30px;float: left;color: white;"></i>
+                    <div class="text" style="font-size: 20px;">Buy currency</div>
+                </button>
+               </a>
+                <br>
+                <br>
+              <a th:href="@{/client/transfer-money}">
+                <button type="button" class="btn btn-outline-warning" style="width: 70%;height: 50px;">  
+                    <i class="fa fa-globe" aria-hidden="true" style="color: #ebb734;font-size: 30px;float: left;color: white;"></i>
+                    <div class="text" style="font-size: 20px;">Make a transfer</div>
+                </button>
+              </a>
+                <br>
+                <br>
+               <a th:href="@{/client/transfer-report}">
+                <button type="button" class="btn btn-outline-warning" style="width: 70%;height: 50px;">  
+                  <i class="fa fa-calculator" aria-hidden="true" style="color: #ebb734;font-size: 30px;float: left;color: white;"></i>
+                  <div class="text" style="font-size: 20px;">My transfers</div>
+              </button>
+               </a>
+                
+                 </div>
+                 <div class="column">
+                         
+                  <div class="container" style="background-color:#ebb734;height: auto;width: 100%;border-radius: 25px;"> 
+                    <h3 class="text-dark">Exchange rates</h3>
+                    <table class="table">
+
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">01.05.2022</th>
+                            
+                            <th scope="col">Purchase</th>
+                            <th scope="col">Sale</th>
+                          </tr>
+                    
+                        <tbody>
+                          <tr>
+                              
+                            <th scope="col">USD</th>
+                            
+                            <td th:text="${rates[0].getBuyDollar()}"></td>
+                            <td th:text="${rates[0].getSellDollar()}"></td>
+                          </tr>
+
+                        </tbody>
+
+                      </table>
+
+                      <p class="text-dark">
+                        The established rates of purchase and sale of cash and non-cash foreign currencies are valid for the amount of 1 thousand US dollars or the equivalent of 1 thousand US dollars in other foreign currencies. For transactions in excess of 1 thousand US dollars, the exchange rate is set by the Treasury Department of Bumble Bank OJSC by agreement.
+                     </p>
+                      
+                </div>
+                  
+                 </div>
+              </div>
+      
+            </div>
+          
+          </div>
+    
+      <footer class="text-center text-lg-start" style="background-color: #ebb734;">
+        <!-- Section: Social media -->
+        <section
+          class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+        >
+          <!-- Left -->
+          <div class="me-5 d-none d-lg-block">
+            <span>Get connected with us on social networks:</span>
+          </div>
+          <!-- Left -->
+      
+          <!-- Right -->
+          <div>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+      
+        <!-- Section: Links  -->
+        <section class="">
+          <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <!-- Content -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  <i class="fas fa-gem me-3"></i>Bumble
+                </h6>
+                <p>
+                  The information system is designed to facilitate the bank's employees
+                  to make the necessary calculations using
+                  a data processing program.
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Products
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Bank Managment System</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Book library</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Cloud-based platform</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Ebilim</a>
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Useful links
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Help</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Settings</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Orders</a>
+                </p>
+                <p>
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Contact
+                </h6>
+                <p><i class="fas fa-home me-3"></i> Bishkek, 312, KG</p>
+                <p>
+                  <i class="fas fa-envelope me-3"></i>
+                  bumblea@.com
+                </p>
+                <p><i class="fas fa-phone me-3"></i> +996709465239 </p>
+                <p><i class="fas fa-print me-3"></i> +996770423153 </p>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+          </div>
+        </section>
+        <!-- Section: Links  -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          © 2021 Copyright:
+          <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBumble.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+   
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>
