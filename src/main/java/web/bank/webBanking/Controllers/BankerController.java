@@ -92,6 +92,16 @@ public class BankerController {
         return "transfer-report-banker";
     }
 
+    @GetMapping("/report1/{limit}")
+    public String getReport1(Model model, @PathVariable int limit){
+        if(limit<0){
+            limit = 0;
+        }
+        model.addAttribute("report", bankerService.getReport1(limit));
+        model.addAttribute("limit", limit);
+        return "report1";
+    }
+
     @GetMapping("/error")
     public String getErrorPage(Model model){
         model.addAttribute("error", (String) model.asMap().get("error"));

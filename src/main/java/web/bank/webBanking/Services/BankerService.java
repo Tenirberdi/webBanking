@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.bank.webBanking.Common.CommonFunc;
-import web.bank.webBanking.DTO.BankerTransactionReportDTO;
-import web.bank.webBanking.DTO.ClientDTO;
-import web.bank.webBanking.DTO.SumDTO;
-import web.bank.webBanking.DTO.TransactionReportDTO;
+import web.bank.webBanking.DTO.*;
 import web.bank.webBanking.Exceptions.CustomException;
 import web.bank.webBanking.Models.Rate;
 import web.bank.webBanking.Models.Usr;
@@ -34,6 +31,10 @@ public class BankerService {
 
     @Autowired
     private AccountRepo accountRepo;
+
+    public List<Report1DTO> getReport1(int limit){
+        return transactionsRepo.getReport1(limit);
+    }
 
     public List<ClientDTO> getClients(){
         List<ClientDTO> clients = usrRepo.getClients();

@@ -62,4 +62,6 @@ public interface UsrRepo extends CrudRepository<Usr, Long> {
     @Query(value="SELECT u.id, u.full_name, u.login, u.address, u.phone, r.name FROM `usr` as u JOIN `role` as r on r.id = u.role_id where u.enabled = 1 limit ?, 10", nativeQuery = true)
     List<UsrDTO> getUsers(int limit);
 
+
+
 }
